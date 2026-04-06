@@ -2,22 +2,22 @@
 import { useState } from "react";
 
 const TARGETS = [
-  { rank: 1, name: "Amazon", pool: "Fortune 500", sector: "Technology", rivalry: "Walmart", employees: "1,570,000", emailBase: "~350,000", turmoil: 4.6, composite: 4.2, timing: "30K layoffs Jan 2026. RTO mandate ongoing.", status: "not_started", angle: "The biggest layoff in Amazon history. What do 350K corporate employees think?" },
-  { rank: 2, name: "Dept. of Veterans Affairs", pool: "Federal Gov", sector: "Government", rivalry: "Cross-agency", employees: "482,000", emailBase: "~460,000", turmoil: 4.8, composite: 4.1, timing: "80K targeted reductions. Congressional pause expired.", status: "not_started", angle: "80K VA employees may lose their jobs. They serve people who served the country." },
-  { rank: 3, name: "Oracle", pool: "Fortune 500", sector: "Technology", rivalry: "â", employees: "162,000", emailBase: "~130,000", turmoil: 4.8, composite: 4.1, timing: "30K fired via 6am email, Mar 31. Emotions raw NOW.", status: "not_started", angle: "Fired by a 6am email. Survivors told to stretch. $6B quarterly income." },
-  { rank: 4, name: "OpenAI", pool: "Private", sector: "Technology / AI", rivalry: "Anthropic", employees: "~4,000", emailBase: "~4,000", turmoil: 3.8, composite: 3.7, timing: "For-profit conversion. Constant leadership drama.", status: "not_started", angle: "The company building AGI. What do people inside think about safety vs. speed?" },
-  { rank: 5, name: "Anthropic", pool: "Private", sector: "Technology / AI", rivalry: "OpenAI", employees: "~1,100â5,000", emailBase: "~1,100â5,000", turmoil: 3.0, composite: 2.9, timing: "Essential rivalry pair with OpenAI.", status: "not_started", angle: "The safety-first AI lab. How do they compare to OpenAI on burnout and mission?" },
-  { rank: 6, name: "Meta", pool: "Fortune 500", sector: "Technology", rivalry: "â", employees: "67,000", emailBase: "~67,000", turmoil: 4.2, composite: 4.0, timing: "Ongoing performance layoffs. Trust crisis.", status: "not_started", angle: "Masculine energy. Performance layoffs nobody believes. Where is this company heading?" },
-  { rank: 7, name: "Disney", pool: "Fortune 500", sector: "Media", rivalry: "Warner Bros", employees: "225,000", emailBase: "~55,000", turmoil: 4.0, composite: 3.6, timing: "4th round of layoffs in a year.", status: "not_started", angle: "Four rounds of layoffs while revenue goes up. What do the people who make the magic think?" },
-  { rank: 8, name: "Warner Bros Discovery", pool: "Fortune 500", sector: "Media", rivalry: "Disney", employees: "37,000", emailBase: "~28,000", turmoil: 4.2, composite: 3.8, timing: "Ongoing cable cuts. Merger culture clash.", status: "not_started", angle: "Two media giants merged and nobody's sure it's working." },
-  { rank: 9, name: "Citigroup", pool: "Fortune 500", sector: "Finance", rivalry: "Morgan Stanley", employees: "240,000", emailBase: "~200,000", turmoil: 4.4, composite: 3.9, timing: "Layoffs begin Apr 14â18. TWO WEEK WINDOW.", status: "not_started", angle: "CEO: 'We are not graded on effort.' Employee: 'Total implosion.' 20K jobs cut." },
-  { rank: 10, name: "Morgan Stanley", pool: "Fortune 500", sector: "Finance", rivalry: "Citigroup", employees: "82,000", emailBase: "~75,000", turmoil: 3.6, composite: 3.4, timing: "2,500 cut March 2026. Record profits + cuts.", status: "not_started", angle: "Record profits. 2,500 laid off anyway. Wall Street sentiment showdown with Citi." },
-  { rank: 11, name: "Boeing", pool: "Fortune 500", sector: "Manufacturing", rivalry: "Lockheed Martin", employees: "170,000", emailBase: "~140,000", turmoil: 4.4, composite: 3.9, timing: "Safety crisis ongoing.", status: "not_started", angle: "Doors flying off. Criminal investigations. Do employees trust management to fix it?" },
-  { rank: 12, name: "Target", pool: "Fortune 500", sector: "Retail", rivalry: "Walmart", employees: "440,000", emailBase: "~18,000", turmoil: 3.8, composite: 3.1, timing: "New CEO Feb 2026. 12 quarters falling sales.", status: "not_started", angle: "12 straight quarters down. New CEO. Can this ship turn around?" },
-  { rank: 13, name: "HHS", pool: "Federal Gov", sector: "Government", rivalry: "Cross-agency", employees: "83,000", emailBase: "~80,000", turmoil: 4.8, composite: 4.0, timing: "Most DOGE-targeted agency. Cuts ongoing.", status: "not_started", angle: "Medicare, CDC, FDA â all under the knife. What do HHS employees think?" },
-  { rank: 14, name: "Dept. of Education", pool: "Federal Gov", sector: "Government", rivalry: "Cross-agency", employees: "4,400", emailBase: "~4,400", turmoil: 5.0, composite: 3.9, timing: "Proposing 50% workforce cut. Existential.", status: "not_started", angle: "Half the agency might be eliminated. What do the people inside think?" },
-  { rank: 15, name: "Nike", pool: "Fortune 500", sector: "Retail / Consumer", rivalry: "Adidas", employees: "79,000", emailBase: "~32,000", turmoil: 3.4, composite: 3.3, timing: "Distribution layoffs. Automation push.", status: "not_started", angle: "The swoosh vs. the stripes. Automation replacing jobs." },
-  { rank: 16, name: "Planned Parenthood", pool: "Large NGO", sector: "Public Sector", rivalry: "â", employees: "12,000", emailBase: "~9,000", turmoil: 4.2, composite: 3.3, timing: "Internal turmoil. Political pressure never stops.", status: "not_started", angle: "Mission-driven employees navigating political warfare and internal turmoil." },
+  { rank: 1, name: "Amazon", pool: "Fortune 500", sector: "Technology", rivalry: "Walmart", triad: null, employees: "1,570,000", emailBase: "~350,000", turmoil: 4.6, composite: 4.2, timing: "30K layoffs Jan 2026. RTO mandate ongoing.", status: "not_started", angle: "The biggest layoff in Amazon history. What do 350K corporate employees think?", strategy: { approach: "Leverage RTO mandate frustration and mass layoff anxiety among 350K corporate email users.", tactics: ["Blind posts targeting Amazon employees (124K on Blind)", "r/amazon subreddit seeding with anonymous pulse angle", "QR codes at Seattle HQ coffee shops and SLU area", "LinkedIn carousel: 'What 350K Amazon corporate employees really think'"], channels: ["Blind", "Reddit", "LinkedIn"] } },
+  { rank: 2, name: "Dept. of Veterans Affairs", pool: "Federal Gov", sector: "Government", rivalry: "Cross-agency", triad: "DHS vs HHS vs VA", employees: "482,000", emailBase: "~460,000", turmoil: 4.8, composite: 4.1, timing: "80K targeted reductions. Congressional pause expired.", status: "not_started", angle: "80K VA employees may lose their jobs. They serve people who served the country.", strategy: { approach: "Federal workers have opinions they cannot express through official channels. VA is the largest federal employer with near-universal email.", tactics: ["r/fednews launch post as 'anonymous daily pulse for federal workers'", "AFGE union newsletter placement (largest federal union)", "VA-specific Facebook groups for employees", "QR codes at VA medical centers near admin offices"], channels: ["Reddit", "Facebook Groups", "Newsletters"] } },
+  { rank: 3, name: "Oracle", pool: "Fortune 500", sector: "Technology", rivalry: "-", triad: null, employees: "162,000", emailBase: "~130,000", turmoil: 4.8, composite: 4.1, timing: "30K fired via 6am email, Mar 31. Emotions raw NOW.", status: "not_started", angle: "Fired by a 6am email. Survivors told to stretch. $6B quarterly income.", strategy: { approach: "6am mass firing email created raw emotional moment. Survivors are angry and looking for outlets.", tactics: ["TheLayoff.com Oracle board (extremely active right now)", "Blind posts targeting Oracle employees post-layoff", "LinkedIn posts riding the 'fired by email' news cycle", "Reddit r/oracle community engagement"], channels: ["Blind", "LinkedIn", "Reddit"] } },
+  { rank: 4, name: "OpenAI", pool: "Private", sector: "Technology / AI", rivalry: "Anthropic", triad: "Anthropic vs OpenAI vs xAI", employees: "~4,000", emailBase: "~4,000", turmoil: 3.8, composite: 3.7, timing: "For-profit conversion. Constant leadership drama.", status: "not_started", angle: "The company building AGI. What do people inside think about safety vs. speed?", strategy: { approach: "Safety vs speed debate creates passionate internal opinions. Small but incredibly influential employee base.", tactics: ["Hacker News Show HN post with safety/morale angle", "Blind posts in AI company channels", "X/Twitter engagement with AI safety discourse", "Direct outreach to known AI safety advocates"], channels: ["Hacker News", "Blind", "X / Twitter"] } },
+  { rank: 5, name: "Anthropic", pool: "Private", sector: "Technology / AI", rivalry: "OpenAI", triad: "Anthropic vs OpenAI vs xAI", employees: "~1,100-5,000", emailBase: "~1,100-5,000", turmoil: 3.0, composite: 2.9, timing: "Essential rivalry pair with OpenAI.", status: "not_started", angle: "The safety-first AI lab. How do they compare to OpenAI on burnout and mission?", strategy: { approach: "The 'safety-first' positioning creates natural curiosity about how employees compare to OpenAI on burnout and mission.", tactics: ["Hacker News cross-posting with OpenAI comparison angle", "Blind AI company channels", "LinkedIn thought leadership on AI workplace culture", "Direct DMs to vocal Anthropic employees on X"], channels: ["Hacker News", "Blind", "LinkedIn"] } },
+  { rank: 6, name: "Meta", pool: "Fortune 500", sector: "Technology", rivalry: "Google", triad: "Meta vs Google vs Microsoft", employees: "67,000", emailBase: "~67,000", turmoil: 4.2, composite: 4.0, timing: "Ongoing performance layoffs. Trust crisis.", status: "not_started", angle: "Masculine energy. Performance layoffs nobody believes. Where is this company heading?", strategy: { approach: "Performance-based layoffs and 'masculine energy' culture shift generate strong opinions among 67K employees.", tactics: ["Blind posts (50K+ Meta employees on Blind)", "Reddit r/meta and tech career subreddits", "LinkedIn carousel on Big Tech morale comparison", "TikTok/Reels content about corporate culture shifts"], channels: ["Blind", "Reddit", "LinkedIn"] } },
+  { rank: 7, name: "Disney", pool: "Fortune 500", sector: "Media", rivalry: "Warner Bros Discovery", triad: "Warner Bros vs Disney vs Netflix", employees: "225,000", emailBase: "~55,000", turmoil: 4.0, composite: 3.6, timing: "4th round of layoffs in a year.", status: "not_started", angle: "Four rounds of layoffs while revenue goes up. What do the people who make the magic think?", strategy: { approach: "Four rounds of layoffs while revenue grows. Creative employees feel betrayed. Strong emotional angle.", tactics: ["Facebook: Film Industry Network (142K members)", "Entertainment industry Discord servers", "LinkedIn posts targeting entertainment/media workers", "Press pitches with 'Staff says' Disney employee data"], channels: ["Facebook Groups", "LinkedIn", "Press / PR"] } },
+  { rank: 8, name: "Warner Bros Discovery", pool: "Fortune 500", sector: "Media", rivalry: "Disney", triad: "Warner Bros vs Disney vs Netflix", employees: "37,000", emailBase: "~28,000", turmoil: 4.2, composite: 3.8, timing: "Ongoing cable cuts. Merger culture clash.", status: "not_started", angle: "Two media giants merged and nobody's sure it's working.", strategy: { approach: "Merger culture clash and ongoing cable cuts create deep uncertainty. Natural comparison with Disney.", tactics: ["Facebook entertainment industry groups", "TheLayoff.com Warner Bros board", "LinkedIn posts on media merger culture clash", "Reddit r/television and industry subreddits"], channels: ["Facebook Groups", "LinkedIn", "Reddit"] } },
+  { rank: 9, name: "Citigroup", pool: "Fortune 500", sector: "Finance", rivalry: "Morgan Stanley", triad: "Citigroup vs Morgan Stanley vs Wells Fargo", employees: "240,000", emailBase: "~200,000", turmoil: 4.4, composite: 3.9, timing: "Layoffs begin Apr 14-18. TWO WEEK WINDOW.", status: "not_started", angle: "CEO: 'We are not graded on effort.' Employee: 'Total implosion.' 20K jobs cut.", strategy: { approach: "CEO said 'we are not graded on effort' while cutting 20K jobs. Layoffs starting Apr 14-18 create a two-week window.", tactics: ["Blind finance channels (heavy Citi presence)", "QR codes at NYC Midtown finance corridor", "LinkedIn posts timed to Apr 14 layoff start", "Wall Street Oasis forum seeding"], channels: ["Blind", "Physical / QR", "LinkedIn"] } },
+  { rank: 10, name: "Morgan Stanley", pool: "Fortune 500", sector: "Finance", rivalry: "Citigroup", triad: "Citigroup vs Morgan Stanley vs Wells Fargo", employees: "82,000", emailBase: "~75,000", turmoil: 3.6, composite: 3.4, timing: "2,500 cut March 2026. Record profits + cuts.", status: "not_started", angle: "Record profits. 2,500 laid off anyway. Wall Street sentiment showdown with Citi.", strategy: { approach: "Record profits alongside 2,500 cuts. Natural rivalry with Citi creates comparison content.", tactics: ["Blind finance channels with Citi comparison angle", "QR codes at Times Square / Midtown offices", "LinkedIn content on 'record profits + layoffs' paradox", "Finance newsletter placements"], channels: ["Blind", "Physical / QR", "Newsletters"] } },
+  { rank: 11, name: "Boeing", pool: "Fortune 500", sector: "Manufacturing", rivalry: "Lockheed Martin", triad: null, employees: "170,000", emailBase: "~140,000", turmoil: 4.4, composite: 3.9, timing: "Safety crisis ongoing.", status: "not_started", angle: "Doors flying off. Criminal investigations. Do employees trust management to fix it?", strategy: { approach: "Safety crisis and criminal investigations create an environment where employees want to speak but fear retaliation.", tactics: ["Reddit r/boeing and aviation subreddits", "LinkedIn targeting aerospace/defense workers", "Everett/Renton area QR code deployment near Boeing plants", "Press pitches with employee safety sentiment data"], channels: ["Reddit", "LinkedIn", "Press / PR"] } },
+  { rank: 12, name: "Target", pool: "Fortune 500", sector: "Retail", rivalry: "Walmart", triad: null, employees: "440,000", emailBase: "~18,000", turmoil: 3.8, composite: 3.1, timing: "New CEO Feb 2026. 12 quarters falling sales.", status: "not_started", angle: "12 straight quarters down. New CEO. Can this ship turn around?", strategy: { approach: "12 straight quarters of declining sales plus new CEO creates uncertainty. 18K corporate email users are reachable.", tactics: ["Blind retail/corporate channels", "Reddit r/target (employee-heavy subreddit)", "LinkedIn posts on retail leadership transitions", "QR codes at Minneapolis HQ area"], channels: ["Blind", "Reddit", "LinkedIn"] } },
+  { rank: 13, name: "HHS", pool: "Federal Gov", sector: "Government", rivalry: "Cross-agency", triad: "DHS vs HHS vs VA", employees: "83,000", emailBase: "~80,000", turmoil: 4.8, composite: 4.0, timing: "Most DOGE-targeted agency. Cuts ongoing.", status: "not_started", angle: "Medicare, CDC, FDA - all under the knife. What do HHS employees think?", strategy: { approach: "Most DOGE-targeted agency. Medicare, CDC, FDA all under the knife. Employees are terrified and opinionated.", tactics: ["r/fednews with HHS-specific content", "AFGE and NTEU union newsletter placement", "Facebook groups for federal health workers", "Government employee forums and listservs"], channels: ["Reddit", "Facebook Groups", "Newsletters"] } },
+  { rank: 14, name: "Dept. of Education", pool: "Federal Gov", sector: "Government", rivalry: "Cross-agency", triad: "DHS vs HHS vs VA", employees: "4,400", emailBase: "~4,400", turmoil: 5.0, composite: 3.9, timing: "Proposing 50% workforce cut. Existential.", status: "not_started", angle: "Half the agency might be eliminated. What do the people inside think?", strategy: { approach: "Existential threat - 50% workforce cut proposed. Smallest federal target but highest turmoil score (5.0).", tactics: ["r/fednews with education-specific survival angle", "Education union newsletter placement (NEA, AFT)", "LinkedIn posts on government workforce elimination", "Direct outreach to education policy communities"], channels: ["Reddit", "Newsletters", "LinkedIn"] } },
+  { rank: 15, name: "Nike", pool: "Fortune 500", sector: "Retail / Consumer", rivalry: "Adidas", triad: null, employees: "79,000", emailBase: "~32,000", turmoil: 3.4, composite: 3.3, timing: "Distribution layoffs. Automation push.", status: "not_started", angle: "The swoosh vs. the stripes. Automation replacing jobs.", strategy: { approach: "Distribution layoffs and automation push. Swoosh vs stripes creates natural comparison content.", tactics: ["Blind posts targeting Nike corporate in Portland", "Reddit r/nike and sneaker culture subreddits", "LinkedIn posts on automation replacing jobs", "QR codes at Portland HQ area and retail locations"], channels: ["Blind", "Reddit", "LinkedIn"] } },
+  { rank: 16, name: "Planned Parenthood", pool: "Large NGO", sector: "Public Sector", rivalry: "-", triad: "ACLU vs Red Cross vs Planned Parenthood", employees: "12,000", emailBase: "~9,000", turmoil: 4.2, composite: 3.3, timing: "Internal turmoil. Political pressure never stops.", status: "not_started", angle: "Mission-driven employees navigating political warfare and internal turmoil.", strategy: { approach: "Mission-driven employees navigating political warfare. Strong opinions that cannot be expressed publicly.", tactics: ["LinkedIn targeting nonprofit/public sector workers", "NGO-focused newsletters and communities", "Facebook groups for reproductive health workers", "Direct outreach to nonprofit professional networks"], channels: ["LinkedIn", "Newsletters", "Facebook Groups"] } },
 ];
 
 const CHANNELS = [
@@ -32,6 +32,8 @@ const CHANNELS = [
   { name: "Discord / Slack", type: "Community", priority: "Medium", targets: "Tech, Fed Gov", status: "not_started", notes: "Slack FedRAMP authorized. ReactiFlux 200K+ devs." },
   { name: "Facebook Groups", type: "Community", priority: "Medium", targets: "Gov, Healthcare, NGO", status: "not_started", notes: "Strong for nurses, teachers, federal worker groups." },
   { name: "Physical / QR", type: "Offline", priority: "Low", targets: "Coworking, events", status: "not_started", notes: "QR codes in WeWork spaces, HR Tech conferences." },
+  { name: "Hacker News", type: "Community", priority: "Medium", targets: "Tech, AI", status: "not_started", notes: "Show HN: Technical audience, high engagement on workplace culture." },
+  { name: "TheLayoff.com", type: "Community", priority: "High", targets: "Tech, Finance, Media", status: "not_started", notes: "Highly active boards per company. Real-time employee sentiment." },
 ];
 
 const RIVALRY_TRIADS = [
@@ -132,15 +134,15 @@ function SummaryCards() {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
       {[
-        { label: "Targets", value: TARGETS.length, sub: "across 4 pools", icon: "ð¯" },
-        { label: "Addressable", value: totalEmail, sub: "est. corporate email", icon: "ð§" },
-        { label: "Avg Turmoil", value: avgTurmoil + "/5", sub: "higher = more opportunity", icon: "ð¥" },
-        { label: "Urgent", value: urgentCount, sub: "turmoil â¥ 4.5", icon: "â¡" },
-        { label: "Rivalry Triads", value: RIVALRY_TRIADS.length, sub: "3-way viral mechanic", icon: "âï¸" },
+        { label: "Targets", value: TARGETS.length, sub: "across 4 pools", icon: "[TARGETS]" },
+        { label: "Addressable", value: totalEmail, sub: "est. corporate email", icon: "[EMAIL]" },
+        { label: "Avg Turmoil", value: avgTurmoil + "/5", sub: "higher = more opportunity", icon: "[FIRE]" },
+        { label: "Urgent", value: urgentCount, sub: "turmoil >= 4.5", icon: "[URGENT]" },
+        { label: "Rivalry Triads", value: RIVALRY_TRIADS.length, sub: "3-way viral mechanic", icon: "[TRIADS]" },
       ].map((card, i) => (
         <div key={i} className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-sm transition-shadow">
           <div className="flex items-center gap-2">
-            <span className="text-lg">{card.icon}</span>
+            <span className="text-xs text-gray-600">{card.icon}</span>
             <span className="text-xs text-gray-500 uppercase tracking-wide font-semibold">{card.label}</span>
           </div>
           <div className="text-2xl font-black text-gray-900 mt-2">{card.value}</div>
@@ -152,6 +154,11 @@ function SummaryCards() {
 }
 
 function TargetDetail({ target, onClose }) {
+  const triadInfo = target.triad ? RIVALRY_TRIADS.find(t =>
+    (t.a === target.name || t.b === target.name || t.c === target.name) ||
+    (t.a + " vs " + t.b + " vs " + t.c === target.triad)
+  ) : null;
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto p-6" onClick={e => e.stopPropagation()}>
@@ -186,16 +193,51 @@ function TargetDetail({ target, onClose }) {
             <TurmoilBar score={target.turmoil} />
           </div>
 
-          {target.rivalry !== "â" && (
+          {target.strategy && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+              <div className="text-xs text-blue-600 uppercase font-semibold mb-2">Strategy</div>
+              <p className="text-sm text-blue-800">{target.strategy.approach}</p>
+            </div>
+          )}
+
+          {target.strategy && target.strategy.tactics && (
+            <div>
+              <div className="text-xs text-gray-500 uppercase font-semibold mb-2">Key Tactics</div>
+              <ul className="space-y-1.5">
+                {target.strategy.tactics.map((tactic, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                    <input type="checkbox" className="mt-0.5 w-3 h-3 rounded" />
+                    <span>{tactic}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {target.strategy && target.strategy.channels && (
+            <div>
+              <div className="text-xs text-gray-500 uppercase font-semibold mb-2">Best Channels</div>
+              <div className="flex flex-wrap gap-2">
+                {target.strategy.channels.map((channel, i) => (
+                  <span key={i} className="inline-block px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 border border-green-200">
+                    {channel}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {triadInfo && (
             <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-              <div className="text-xs text-orange-600 uppercase font-semibold">Rivalry Pair</div>
-              <div className="text-sm font-bold text-orange-800 mt-1">{target.name} vs. {target.rivalry}</div>
+              <div className="text-xs text-orange-600 uppercase font-semibold mb-2">Rivalry Triad</div>
+              <div className="text-sm font-bold text-orange-800 mb-2">{triadInfo.a} vs {triadInfo.b} vs {triadInfo.c}</div>
+              <p className="text-xs text-orange-700 italic">&quot;{triadInfo.hook}&quot;</p>
             </div>
           )}
 
           <div>
             <div className="text-xs text-gray-500 uppercase font-semibold mb-1">Entry Angle</div>
-            <p className="text-sm text-gray-700 italic">"{target.angle}"</p>
+            <p className="text-sm text-gray-700 italic">&quot;{target.angle}&quot;</p>
           </div>
 
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
@@ -237,7 +279,7 @@ export default function Dashboard() {
         <div className="flex items-center gap-3 mb-1">
           <h1 className="text-3xl font-black text-gray-900 tracking-tight">Staff GTM Command Center</h1>
         </div>
-        <p className="text-gray-500 text-sm">Go-to-market strategy tracker â 79seconds / staff.is</p>
+        <p className="text-gray-500 text-sm">Go-to-market strategy tracker - 79seconds / staff.is</p>
       </div>
 
       <div className="space-y-4">
@@ -246,10 +288,10 @@ export default function Dashboard() {
 
         <div className="flex gap-1 bg-white rounded-xl border border-gray-200 p-1.5 w-fit shadow-sm">
           {[
-            { id: "targets", label: "ð¯ Targets", count: TARGETS.length },
-            { id: "channels", label: "ð¡ Channels", count: CHANNELS.length },
-            { id: "rivalries", label: "âï¸ Rivalries", count: RIVALRY_TRIADS.length },
-            { id: "timeline", label: "ð Timeline" },
+            { id: "targets", label: "Targets", count: TARGETS.length },
+            { id: "channels", label: "Channels", count: CHANNELS.length },
+            { id: "rivalries", label: "Rivalries", count: RIVALRY_TRIADS.length },
+            { id: "timeline", label: "Timeline" },
           ].map((t) => (
             <button
               key={t.id}
@@ -295,7 +337,7 @@ export default function Dashboard() {
                     <th className="px-4 py-3">Company</th>
                     <th className="px-4 py-3">Pool</th>
                     <th className="px-4 py-3">Sector</th>
-                    <th className="px-4 py-3">Rivalry</th>
+                    <th className="px-4 py-3">Rivalry Triad</th>
                     <th className="px-4 py-3 text-right">Email Base</th>
                     <th className="px-4 py-3">Turmoil</th>
                     <th className="px-4 py-3">Status</th>
@@ -314,7 +356,7 @@ export default function Dashboard() {
                       <td className="px-4 py-3 font-semibold text-gray-900">{t.name}</td>
                       <td className="px-4 py-3"><PoolBadge pool={t.pool} /></td>
                       <td className="px-4 py-3 text-gray-600 text-xs">{t.sector}</td>
-                      <td className="px-4 py-3 text-gray-500 text-xs">{t.rivalry !== "â" ? `vs. ${t.rivalry}` : "â"}</td>
+                      <td className="px-4 py-3 text-gray-500 text-xs">{t.triad || "-"}</td>
                       <td className="px-4 py-3 text-right font-mono text-gray-700 text-xs">{t.emailBase}</td>
                       <td className="px-4 py-3"><TurmoilBar score={t.turmoil} /></td>
                       <td className="px-4 py-3"><StatusBadge status={t.status} /></td>
@@ -367,7 +409,7 @@ export default function Dashboard() {
           <div className="space-y-4">
             <div>
               <h2 className="font-bold text-gray-900 text-lg">Rivalry Triads</h2>
-              <p className="text-sm text-gray-500 mt-1">Three-way comparisons create 4x the content surface of binary pairs. Each triad generates 3 pairwise matchups + 1 three-way ranking â the core viral mechanic.</p>
+              <p className="text-sm text-gray-500 mt-1">Three-way comparisons create 4x the content surface of binary pairs. Each triad generates 3 pairwise matchups + 1 three-way ranking - the core viral mechanic.</p>
             </div>
             {RIVALRY_TRIADS.map((triad, i) => (
               <div key={i} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -400,7 +442,7 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
-                  <div className="text-sm text-gray-600 italic">&ldquo;{triad.hook}&rdquo;</div>
+                  <div className="text-sm text-gray-600 italic">&quot;{triad.hook}&quot;</div>
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs text-gray-400">Best channel:</span>
                     <span className="px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700 border border-blue-200">{triad.channel}</span>
@@ -413,41 +455,41 @@ export default function Dashboard() {
 
         {tab === "timeline" && (
           <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-            <h2 className="font-bold text-gray-900 text-lg mb-1">May 1 â Election Day Viral Playbook</h2>
-            <p className="text-sm text-gray-500 mb-6">4 phases, 187 days â zero budget, QR-driven growth</p>
+            <h2 className="font-bold text-gray-900 text-lg mb-1">May 1 to Election Day Viral Playbook</h2>
+            <p className="text-sm text-gray-500 mb-6">4 phases, 187 days - zero budget, QR-driven growth</p>
             <div className="space-y-0">
               {[
-                { week: "Phase 1", dates: "May 1 â Jun 15", phase: "SEED", color: "from-blue-500 to-blue-600", target: "500 subs", tasks: [
-                  "ð PUBLIC BETA â MAY 1",
-                  "r/fednews launch post â 'anonymous daily pulse for federal workers'",
+                { week: "Phase 1", dates: "May 1 - Jun 15", phase: "SEED", color: "from-blue-500 to-blue-600", target: "500 subs", tasks: [
+                  "PUBLIC BETA - MAY 1",
+                  "r/fednews launch post - 'anonymous daily pulse for federal workers'",
                   "Blind posts: Finance triad (Citi vs MS vs Wells Fargo morale) + Big Tech triad",
-                  "Hacker News Show HN for AI triad â safety/morale angle",
+                  "Hacker News Show HN for AI triad - safety/morale angle",
                   "Facebook: Film Industry Network (142K) for Media triad",
                   "QR deployment: Burbank coffee shops + NYC Midtown finance corridor",
                   "Every new subscriber gets personal QR code + 'Invite 3 coworkers' prompt",
                 ]},
-                { week: "Phase 2", dates: "Jun 16 â Aug 15", phase: "IGNITE RIVALRIES", color: "from-yellow-500 to-orange-500", target: "2,500 subs", tasks: [
-                  "First Rivalry Reports drop â side-by-side triad comparison image cards",
+                { week: "Phase 2", dates: "Jun 16 - Aug 15", phase: "IGNITE RIVALRIES", color: "from-yellow-500 to-orange-500", target: "2,500 subs", tasks: [
+                  "First Rivalry Reports drop - side-by-side triad comparison image cards",
                   "Triad leaderboards: 'Which company's employees are happiest this week?'",
-                  "'Share your ranking' â branded image card generator for LinkedIn/Instagram",
+                  "'Share your ranking' - branded image card generator for LinkedIn/Instagram",
                   "UAW outreach for Ford/GM/Tesla triad (aligns with $40M organizing push)",
                   "SEIU Local 1000 outreach for CA state gov triad (96K workers)",
-                  "Caltrain QR campaign â Palo Alto, Mountain View platforms for Big Tech triad",
+                  "Caltrain QR campaign - Palo Alto, Mountain View platforms for Big Tech triad",
                   "Second Blind/Reddit wave with real anonymized data comparisons",
                 ]},
-                { week: "Phase 3", dates: "Aug 16 â Sep 30", phase: "AMPLIFY", color: "from-green-500 to-emerald-500", target: "10,000 subs", tasks: [
+                { week: "Phase 3", dates: "Aug 16 - Sep 30", phase: "AMPLIFY", color: "from-green-500 to-emerald-500", target: "10,000 subs", tasks: [
                   "Press pitches: Axios, Business Insider, Fast Company with 'Staff says' data",
                   "Podcast circuit: WorkLife w/ Adam Grant, Pivot, Prof G Pod, How I Built This",
                   "HLTH Conference pre-buzz for Health Insurance triad (Nov event)",
-                  "American Automotive Summit (Sep 15-16, Detroit) â QR in conference materials",
-                  "Launch 'Election Pulse' daily series â how the election affects workers",
+                  "American Automotive Summit (Sep 15-16, Detroit) - QR in conference materials",
+                  "Launch 'Election Pulse' daily series - how the election affects workers",
                   "Newsletter partnerships: Morning Brew, The Hustle, TLDR Newsletter",
                 ]},
-                { week: "Phase 4", dates: "Oct 1 â Nov 5", phase: "ELECTION SPRINT", color: "from-red-500 to-rose-600", target: "25,000+ subs", tasks: [
+                { week: "Phase 4", dates: "Oct 1 - Nov 5", phase: "ELECTION SPRINT", color: "from-red-500 to-rose-600", target: "25,000+ subs", tasks: [
                   "Daily Election Pulse: political opinions at work, would you leave based on outcome?",
                   "State Gov triad peaks: FL vs TX vs CA employee opinions on the election",
                   "Federal triad peaks: DHS/HHS/VA on job security post-election",
-                  "'Staff Predicts' â aggregate employee sentiment as informal election predictor",
+                  "'Staff Predicts' - aggregate employee sentiment as informal election predictor",
                   "Election night live results: 'How do you feel about the result?'",
                   "Final QR blitz: every conference, union hall, commuter corridor",
                   "Referral sprint: 'Invite 5 coworkers this week' challenge with leaderboard",
@@ -471,7 +513,7 @@ export default function Dashboard() {
                       {w.tasks.map((task, j) => (
                         <li key={j} className="text-sm text-gray-600 flex items-start gap-2.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 flex-shrink-0" />
-                          <span className={task.includes("PUBLIC BETA") || task.includes("ð") ? "font-bold text-gray-900" : ""}>{task}</span>
+                          <span className={task.includes("PUBLIC BETA") ? "font-bold text-gray-900" : ""}>{task}</span>
                         </li>
                       ))}
                     </ul>
@@ -486,7 +528,7 @@ export default function Dashboard() {
       {selectedTarget && <TargetDetail target={selectedTarget} onClose={() => setSelectedTarget(null)} />}
 
       <div className="mt-8 text-xs text-gray-400 text-center pb-4">
-        Staff GTM Command Center v1.0 â Data as of April 5, 2026 â 79seconds
+        Staff GTM Command Center v1.0 - Data as of April 5, 2026 - 79seconds
       </div>
     </div>
   );
